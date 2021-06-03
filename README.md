@@ -1,2 +1,7 @@
-# phpcrud
-Simple PHP CRUD Project
+# CRUD Written in PHP
+  
+Simple university project.
+Other Contributors:  
+  -Dajana Kuqi  
+  -Mikel Shevroja
+  -Adelajda Muzhaqi
