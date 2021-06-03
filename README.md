@@ -3,5 +3,5 @@
 Simple university project.
 Other Contributors:  
   -Dajana Kuqi  
-  -Mikel Shevroja
-  -Adelajda Muzhaqi
+  -Mikel Shevroja  
+  -Adelajda Muzhaqi  
