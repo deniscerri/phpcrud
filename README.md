@@ -1,7 +1,8 @@
-# CRUD Written in PHP
+# Purpose
   
-Simple university project.  
-Other Contributors:  
+**Simple php crud university project.**
+
+## Other Contributors:  
   -Dajana Kuqi  
   -Mikel Shevroja  
   -Adelajda Muzhaqi  
