@@ -1,8 +1,3 @@
-# Purpose
+# PHP CRUD  
   
-**Simple php crud university project.**
-
-## Other Contributors:  
-  -Dajana Kuqi  
-  -Mikel Shevroja  
-  -Adelajda Muzhaqi  
+Simple php crud university project. Other contributors include: Dajana Kuqi, Mikel Shevroja, Adelajda Muzhaqi.  
