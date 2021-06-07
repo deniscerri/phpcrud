@@ -4,7 +4,7 @@ CREATE TABLE `employees` (
     `lastName` varchar(25) not null,
     `email` varchar(30) not null,
     `phone` varchar(15),
-    `gender` char(8),
+    `gender` char(1),
     `country` varchar(25) not null,
     `city` varchar(25) not null,
     `position` varchar(20) not null,
