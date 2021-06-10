@@ -1,56 +1,54 @@
+<?php include "resource/php/read.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title> Employee Management [Dashboard] </title>
-    </head>
-    <style>
-        .forma{
-        text-align: center;
-        }
-        .button{
-        background-color:  #66b3ff;
-        border: 1px blue;
-        font-size: 100%;
-        }
-
-        .mirmbajtja{
-        padding: 30px;
-        margin: 20px;
-        }
-    </style>
-    <body>
-        <?php 
-            $mysqli = new mysqli('localhost', 'root', 'password', 'emp_db') or die(mysql_error($mysqli));
-            $result = $mysqli->query("select * from employees") or die($mysqli->error);
-
-        ?>
-            <div>
-                <table>
+<head>
+    <title>Employee Management [Dashboard]</title>
+</head>
+<body>
+    <?php if(mysqli_num_rows($result)) {?>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $i = 0; 
+                    while($rows = mysqli_fetch_assoc($result)){
+                        $i++;
+                ?>
                     <tr>
-                        <td>First Name</td>
-                        <td>Last Name</td>
-                        <td>Email</td>
-                        <td>Phone</td>
-                        <td>Gender</td>
-                        <td>Country</td>
-                        <td>City</td>
-                        <td>Position</td>
-                        <td colspan= "2">Actions</td>
+                        <td><?php echo $i?></td>
+                        <td><?php echo $rows['firstName']?></td>
+                        <td><?php echo $rows['lastName']?></td>
+                        <td><?php echo $rows['email']?></td>
+                        <td><?php echo $rows['phone']?></td>
+                        <td><?php echo $rows['gender']?></td>
+                        <td><?php echo $rows['country']?></td>
+                        <td><?php echo $rows['city']?></td>
+                        <td><?php echo $rows['position']?></td>
+                        <td>
+                            <?php echo '<a href="views/updateEmployee.php?id='.$rows['id'].'">Update</a>' ?>
+                        </td>
+                        <td>
+                            <?php echo '<a href="resource/php/delete.php?id='.$rows['id'].'">Delete</a>' ?>
+                        </td>
                     </tr>
-                    <?php while($row = $result->fetch_assoc()) : ?>
-                    <tr>
-                        <td><?php echo $row["firstName"]; ?></td>
-                        <td><?php echo $row["lastName"]; ?></td>
-                        <td><?php echo $row["email"]; ?></td>
-                        <td><?php echo $row["phone"]; ?></td>
-                        <td><?php echo $row["gender"]; ?></td>
-                        <td><?php echo $row["country"]; ?></td>
-                        <td><?php echo $row["city"]; ?></td>
-                        <td><?php echo $row["position"]; ?></td>
-                        <td> <button>Edit</button><button>Delete</button></td>
-                    </tr>
-                    <?php endwhile; ?>
-                </table>
-            </div>
-    </body>
+                <?php }?>
+            </tbody>
+        </table>
+    <?php }else{ echo 'No Employees Recorded.';}?>
+    <br>
+    <a href="views/createEmployee.php"><input type="button" value="Create Employee"></a> <br>
+</body>
 </html>
