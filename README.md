@@ -1,3 +1,3 @@
 # PHP CRUD  
   
-Simple php crud university project. Other contributors include: Dajana Kuqi, Mikel Shevroja, Adelajda Muzhaqi.  
+The same PHP CRUD Project but completely made by the repository owner.
