@@ -27,18 +27,19 @@ function searchEmployee(value){
     $("tr.searchRow").each(function(i){
         $(this).remove();
     })
-
-    //show table if it had been hidden from invalid searches
-    //remove no search result message
-    $('.table').show();
-    $('#noResults').remove();
-
+    
     if(value.length < 2){
         //If Search box becomes empty, show back default elements in order
         $("tr.defaultRow").each(function(i){
             console.log()
             $(this).show();
         })
+        
+        //show table if it had been hidden from invalid searches
+        $('.table').show();
+        //remove no search result message
+        $('.noResults').remove();
+
         return;
     }
     //if search query is longer than 3 characters, all elements are hidden
@@ -52,7 +53,9 @@ function searchEmployee(value){
 
             if(res == ''){
                 $('.table').hide();
-                $('.main').append('<p style="margin-top:50px;" id="noResults">No results found!</p>')
+                if(!$('.noResults').length){
+                    $('.main').append('<p style="margin-top:50px;" class="noResults">No results found!</p>')
+                }
                 return;
             }
 
