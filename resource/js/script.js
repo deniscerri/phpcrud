@@ -1,5 +1,15 @@
-function validateCreation(){
+//If table is empty, no need to show the search box
+window.onload = function() {
+    if ($('.table') == null ) {
+        $('.top').hide();
+    }
 
+    $('#searchBar').keyup(function(){
+        searchEmployee(this.value);
+    })
+}
+
+function validateCreation(){
     //check for empty inputs
     var form = $('form').serializeArray();
     for(var i = 0; i < form.length; i++){
@@ -10,4 +20,47 @@ function validateCreation(){
     }
     
     return true;
+}
+
+function searchEmployee(value){
+    //remove any previous search results to prevent duplicates
+    $("tr.searchRow").each(function(i){
+        $(this).remove();
+    })
+
+    //show table if it had been hidden from invalid searches
+    //remove no search result message
+    $('.table').show();
+    $('#noResults').remove();
+
+    if(value.length < 2){
+        //If Search box becomes empty, show back default elements in order
+        $("tr.defaultRow").each(function(i){
+            console.log()
+            $(this).show();
+        })
+        return;
+    }
+    //if search query is longer than 3 characters, all elements are hidden
+    //search rows are put in their place
+    
+    $.ajax({
+        url: "./resource/php/read.php",
+        type: 'POST',
+        data: "search="+value,
+        success: function(res) {
+
+            if(res == ''){
+                $('.table').hide();
+                $('.main').append('<p style="margin-top:50px;" id="noResults">No results found!</p>')
+                return;
+            }
+
+            $("tr.defaultRow").each(function(i){
+                $(this).hide();
+            })
+           $('tbody').append(res);
+
+        }
+    });
 }
