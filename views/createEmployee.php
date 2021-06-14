@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="container">
+        <button type="button" class="button" id="goBack" name="back"><a href="../index.php">Back</a></button>
         <form id="create" action="../resource/php/create.php" method="post" onsubmit="return validateCreation();">
             <h3>Create </h3>
             <label for="firstName">First Name:</label><br>
@@ -33,7 +34,7 @@
                 <input type="text" id="position" name="position"><br>
             
             <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"> <br>
-            <button type="submit" name="create">Create</button>
+            <button type="submit" class="button" id="createEmp" name="create">Create</button>
         </form>
     </div>
 </body>
