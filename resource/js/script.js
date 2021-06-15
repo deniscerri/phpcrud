@@ -1,9 +1,10 @@
 //If table is empty, no need to show the search box
 window.onload = function() {
-    if ($('.table') == null ) {
-        $('.top').hide();
-    }
-
+    if (!$('.table').length) {
+        $('#searchBar').hide();
+    }else{
+		$('#searchBar').show();
+	}
     $('#searchBar').keyup(function(){
         searchEmployee(this.value);
     })
