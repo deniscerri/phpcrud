@@ -5,6 +5,13 @@ window.onload = function() {
     }else{
 		$('#searchBar').show();
 	}
+
+    //if you return back from update page and the search box is still full
+    //this hides the table and shows the correct search result 
+    if($('#searchBar').val().length > 2){
+        searchEmployee($('#searchBar').val());
+    }
+
     $('#searchBar').keyup(function(){
         searchEmployee(this.value);
     })

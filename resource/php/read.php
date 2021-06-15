@@ -25,6 +25,8 @@ if(isset($_POST['search'])){
         $html.= '<td>'.$row['country'].'</td>';
         $html.= '<td>'.$row['city'].'</td>';
         $html.= '<td>'.$row['position'].'</td>';
+        $html.= '<td><a href="views/updateEmployee.php?id='.$row['id'].'"><ion-icon name="create"></ion-icon></a></td>';
+        $html.= '<td><a href="resource/php/delete.php?id='.$row['id'].'"><ion-icon name="trash"></ion-icon></a></td>';
         $html.='</tr>';
     }
 
