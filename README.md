@@ -1,3 +1,7 @@
 # PHP CRUD  
   
-The same PHP CRUD Project but completely made by the repository owner.
+
+Simple php crud university project. Other contributors include: Dajana Kuqi, Mikel Shevroja, Adelajda Muzhaqi.  
+
+Notice: Even though this is not a native english speaking project, the comments are made in english for everyone to understand. :)
+

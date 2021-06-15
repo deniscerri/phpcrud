@@ -4,6 +4,7 @@ $sql = "SELECT * FROM employees ORDER BY id ASC";
 $result = mysqli_query($conn, $sql);
 
 
+
 if(isset($_POST['search'])){
 
     $search = "SELECT * FROM employees WHERE firstName LIKE '%".$_POST['search']."%' OR lastName LIKE '%".$_POST['search']."%'";
@@ -32,4 +33,4 @@ if(isset($_POST['search'])){
 
 
 
-?>
+

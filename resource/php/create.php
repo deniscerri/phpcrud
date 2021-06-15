@@ -32,3 +32,4 @@ if (isset($_GET['fname']) && isset($_GET['lname'])){
 
     echo mysqli_num_rows($result);
 }
+
