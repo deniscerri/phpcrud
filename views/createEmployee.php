@@ -33,7 +33,6 @@
             <label for="position">Position:</label><br>
                 <input type="text" id="position" name="position"><br>
             
-            <input type="hidden" id="id" name="id" value="<?php echo $id; ?>"> <br>
             <button type="submit" class="button" id="createEmp" name="create">Create</button>
         </form>
     </div>
