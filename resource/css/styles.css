@@ -42,6 +42,7 @@ tbody tr:hover {
 }
 
 .container{
+	position: relative;
 	margin: 0 auto;
 	padding: 0 15px;
     max-width: 1200px;
@@ -87,10 +88,6 @@ tbody tr:hover {
     float: left;
 }
 
-#searchICO{
-    font-size: 20px;
-    padding: 0 0 10px 30px;
-}
 
 .top{
     position: relative;
