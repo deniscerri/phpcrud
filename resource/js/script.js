@@ -30,7 +30,18 @@ function validateCreation(){
     return true;
 }
 
+var lastSearch = '';
+
 function searchEmployee(value){
+
+    if(value == lastSearch){
+        //if you alt-tab the page, this function get called even though the query is the same.
+        //we dont need to do extra requests;
+        return;
+    }
+    lastSearch = value;
+    console.log(value);
+
     //remove any previous search results to prevent duplicates
     $("tr.searchRow").each(function(i){
         $(this).remove();
@@ -42,23 +53,16 @@ function searchEmployee(value){
             console.log()
             $(this).show();
         })
-        
-        //show table if it had been hidden from invalid searches
-        $('.table').show();
-        //remove no search result message
-        $('.noResults').remove();
-
+        showTable();
         return;
     }
     //if search query is longer than 3 characters, all elements are hidden
     //search rows are put in their place
-    
     $.ajax({
         url: "./resource/php/read.php",
         type: 'POST',
         data: "search="+value,
         success: function(res) {
-
             if(res == ''){
                 $('.table').hide();
                 if(!$('.noResults').length){
@@ -66,12 +70,20 @@ function searchEmployee(value){
                 }
                 return;
             }
-
             $("tr.defaultRow").each(function(i){
                 $(this).hide();
             })
+           
+            showTable();
            $('tbody').append(res);
 
         }
     });
+}
+
+function showTable(){
+    //show table if it had been hidden from invalid searches
+    $('.table').show();
+    //remove no search result message
+    $('.noResults').remove();
 }
