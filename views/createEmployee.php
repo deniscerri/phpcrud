@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Employee Management [Add]</title>
+    <meta charset="UTF-8">
+    <title>Employee Management [Create]</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="../resource/js/script.js"></script>
+    <link rel="stylesheet" href="../resource/css/styles.css">
 </head>
 <body>
-    <form action="/resource/php/create.php">
-
-        <label for="emri">Emri:</label><br>
-        <input type="text" id="emri" name="emri" value=""><br>
-
-        <label for="mbiemri">Mbiemri:</label><br>
-        <input type="text" id="mbiemri" name="mbiemri" value=""><br>
-
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email" value=""><br>
-
-        <label for="telefon">Telefon:</label><br>
-        <input type="text" id="telefon" name="telefon" value=""><br>
-
-        <label>Gjinia: </label><br />
-        <input type="radio" name="gjinia" value="mashkull">Mashkull<br />
-        <input type="radio" name="gjinia" value="femer">Femer<br />
-        <input type="radio" name="other" value="other">Other<br />
-
-        <label for="shteti">Shteti:</label><br>
-        <input type="text" id="shteti" name="shteti" value=""><br>
-
-        <label for="qyteti">Qyteti:</label><br>
-        <input type="text" id="qyteti" name="qyteti" value=""><br>
-
-        <label for="pozicioni">Pozicioni:</label><br>
-        <input type="text" id="pozicioni" name="pozicioni" value=""><br>
-
-        <input type="submit" value="Regjistro Punonjes ">
-    </form>
+    <div class="container">
+        <button type="button" class="button" id="goBack" name="back"><a href="../index.php">Back</a></button>
+        <form id="create" action="../resource/php/create.php" method="post" onsubmit="return validateCreation();">
+            <h3>Create </h3>
+            <label for="firstName">First Name:</label><br>
+                <input type="text" id="firstName" name="firstName"><br>
+            <label for="lastName">Last Name:</label><br>
+                <input type="text" id="lastName" name="lastName"><br>
+            <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+            <label for="phone">Phone: [Format +(Prefix)(9-digit-number)]</label><br>
+                <input type="value" id="phone" name="phone"><br>
+            <label for="gender">Gender:</label><br>
+                <input type="radio" name="gender" value="M"> Male<br>
+                <input type="radio" name="gender" value="F"> Female<br>
+                <input type="radio" name="gender" value="-"> Other<br>
+                <input type="radio" name="gender" value="" style="display:none;" checked>
+            <label for="country">Country:</label><br>
+                <input type="text" id="country" name="country"><br>
+            <label for="city">City:</label><br>
+                <input type="text" id="city" name="city"><br>
+            <label for="position">Position:</label><br>
+                <input type="text" id="position" name="position"><br>
+            
+            <button type="submit" class="button" id="createEmp" name="create">Create</button>
+        </form>
+    </div>
 </body>
 </html>

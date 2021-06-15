@@ -1,1 +1,99 @@
+a {
+    color:inherit;
+    text-decoration: none;
+  }
 
+html{
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+thead, html {
+    background-color: #1e2739;
+}
+
+table {
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    border-radius: 15px;
+    border-spacing: 0;
+    text-align: center;
+}
+
+
+tbody tr:nth-child(odd){
+    background: #2b3445;
+}
+
+tbody tr:nth-child(even){
+    background: #323c50;
+}
+
+
+table, td {
+    padding: 8px 8px 8px 20px;
+}
+
+
+tbody tr:hover {
+    background-color: rgba(114, 114, 113, 0.1);
+}
+
+.container{
+	position: relative;
+	margin: 0 auto;
+	padding: 0 15px;
+    max-width: 1200px;
+}
+
+.button{
+    margin-top: 20px;
+    position: relative;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid #e74c3c;
+    background-color:transparent;
+    color:#e74c3c;
+    cursor: pointer;
+    outline:thin;
+    outline-color: #e74c3c;
+}
+
+.button:hover{
+    transition: 300ms ease-in-out;
+    color: #fff;
+    background-color: #e74c3c;
+}
+
+#createEmp{
+   right: 0;
+}
+
+#searchBar {
+    position: absolute;
+    top: 20px;
+    width: 60%;
+    margin: 0 0 0 30px;
+    padding: 5px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #e74c3c;
+    color:white;
+    float: left;
+}
+
+
+.top{
+    position: relative;
+}
+
+
+.sideButton{
+    float:right;
+}

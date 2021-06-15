@@ -22,3 +22,14 @@ if (isset($_POST['create'])) {
     }
 
 }
+
+if (isset($_GET['fname']) && isset($_GET['lname'])){
+    $fname = $_GET['fname'];
+    $lname = $_GET['lname'];
+    
+    $sql = "SELECT * FROM employees WHERE firstName='$fname' AND lastName='$lname'";
+    $result = mysqli_query($conn, $sql);
+
+    echo mysqli_num_rows($result);
+}
+
