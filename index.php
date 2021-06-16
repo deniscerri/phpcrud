@@ -5,7 +5,8 @@
 <head>
     <title>Employee Management [Dashboard]</title>
     <link rel="stylesheet" href="resource/css/styles.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
