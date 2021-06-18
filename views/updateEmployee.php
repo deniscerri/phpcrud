@@ -10,9 +10,9 @@
     <div class="container">
         <form action="../resource/php/update.php" method="post">
             <h3>Update </h3>
-            <label for="firstName">Emri:</label><br>
+            <label for="firstName">First Name:</label><br>
                 <input type="text" id="firstName" name="firstName" value="<?php echo $row['firstName']; ?>"><br>
-            <label for="lastName">Mbiemri:</label><br>
+            <label for="lastName">Last Name:</label><br>
                 <input type="text" id="lastName" name="lastName" value="<?php echo $row['lastName']; ?>"><br>
             <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>"><br>
