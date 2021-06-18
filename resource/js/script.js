@@ -19,7 +19,7 @@ window.onload = function() {
         searchEmployee(this.value);
     })
 
-    $('th').each(function(i){
+    $('th:not(:last-child)').each(function(i){
         $(this).on("click", function(){
             var name = $(this).text();
             if(currentHeader != name && currentHeader != ''){
@@ -79,7 +79,6 @@ function searchEmployee(value){
         return;
     }
     lastSearch = value;
-    console.log(value);
 
     //remove any previous search results to prevent duplicates
     $("tr.searchRow").each(function(i){
@@ -89,7 +88,6 @@ function searchEmployee(value){
     if(value.length < 2){
         //If Search box becomes empty, show back default elements in order
         $("tr.defaultRow").each(function(i){
-            console.log()
             $(this).show();
         })
         showTable();

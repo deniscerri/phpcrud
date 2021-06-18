@@ -15,7 +15,7 @@
         <div class="top">
             <input type="text" name="search" id="searchBar" placeholder="Search Here">
             <div class="sideButton">
-                <a href="views/createEmployee.php"><button class="button" id="createEmp" type="button" value="Create Employee">Create Employee</button></a> <br>
+                <a href="views/createEmployee.html"><button class="button" id="createEmp" type="button" value="Create Employee">Create Employee</button></a> <br>
             </div>
         </div>
         <div class="main">
