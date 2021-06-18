@@ -1,5 +1,8 @@
-//If table is empty, no need to show the search box
+var currentHeader = '';
 window.onload = function() {
+    //reset search query when revisiting page
+    $('#searchBar').value = '';
+    //If table is empty, no need to show the search box
     if (!$('.table').length) {
         $('#searchBar').hide();
     }else{
@@ -14,6 +17,42 @@ window.onload = function() {
 
     $('#searchBar').keyup(function(){
         searchEmployee(this.value);
+    })
+
+    $('th').each(function(i){
+        $(this).on("click", function(){
+            var name = $(this).text();
+            if(currentHeader != name && currentHeader != ''){
+                $(`th:contains('${currentHeader}')`).children().first().remove();
+            }
+
+            currentHeader = name;
+            if(name == '#'){
+                name = 'id';
+            }
+            var sort = '';
+            if($(this).html().indexOf("arrow-dropdown") >= 0) { 
+                sort = 'ASC';
+                $(this).children().first().remove();
+            }
+            else if($(this).html().indexOf("arrow-dropup") >= 0) {
+                sort = 'DESC';
+                $(this).children().first().remove();
+            }
+            else { 
+                sort = 'DESC';
+            }
+
+            if(sort == 'DESC'){
+                $(this).append('<ion-icon name="arrow-dropdown"></ion-icon>');
+            }else if(sort == 'ASC'){
+                $(this).append('<ion-icon name="arrow-dropup"></ion-icon>');
+            }
+            
+
+            name = fixKey(name);
+            sortBy(name, sort);
+        })
     })
 }
 
@@ -56,6 +95,15 @@ function searchEmployee(value){
         showTable();
         return;
     }
+
+    /*
+      if there was already a sort put in place,
+      and we decide to search, the sort should be reset
+      we get the exact header with the logo by the variable currentHeader
+    */
+
+    $(`th:contains('${currentHeader}')`).children().first().remove();
+
     //if search query is longer than 3 characters, all elements are hidden
     //search rows are put in their place
     $.ajax({
@@ -86,4 +134,69 @@ function showTable(){
     $('.table').show();
     //remove no search result message
     $('.noResults').remove();
+}
+
+
+function fixKey(key){
+    switch(key) {
+        case 'Name':
+          key = 'firstName';
+          break;
+        case 'Surname':
+          key = 'lastName';
+          break;
+        case 'Email':
+          key = 'email';
+          break;
+        case 'Phone':
+          key = 'phone';
+          break;
+        case 'Gender':
+          key = 'gender';
+          break;
+        case 'Country':
+          key = 'country';
+          break;
+        case 'City':
+          key = 'city';
+          break;
+        case 'Position':
+          key = 'position';
+          break;
+    }
+    
+    return key;
+}
+
+
+function sortBy(key, sort){
+    //if search box is not empty we need to sort only the search results, not the hidden default ones
+    var search = '';
+    if(lastSearch != ''){
+        //we store search query in a variable that we later pass on to the ajax post call
+        search = lastSearch;
+    }
+
+    $.ajax({
+        url: "./resource/php/read.php",
+        type: 'POST',
+        data: "key="+key+"&sort="+sort+"&query="+search,
+        success: function(res) {
+            //if there is not a search query, we need to replace only the default ones 
+            //because search rows don't exist
+            if(lastSearch == ''){
+                $("tr.defaultRow").each(function(i){
+                    $(this).remove();
+                })
+            //if search query exists, we need to replace only the search queries
+            }else{
+                $("tr.searchRow").each(function(i){
+                    $(this).remove();
+                })
+            }
+           
+           $('tbody').append(res);
+
+        }
+    });
 }
