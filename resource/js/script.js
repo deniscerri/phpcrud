@@ -90,6 +90,8 @@ function searchEmployee(value){
         $("tr.defaultRow").each(function(i){
             $(this).show();
         })
+        //remove sort made in search results
+        $(`th:contains('${currentHeader}')`).children().first().remove();
         showTable();
         return;
     }
