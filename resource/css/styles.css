@@ -1,48 +1,21 @@
-a {
+html a{
     color:inherit;
     text-decoration: none;
-  }
+}
 
-html{
-    color:white;
+body{
+    color: white !important;
     font-family: 'Courier New', Courier, monospace;
 }
 
-
-thead, html {
-    background-color: #1e2739;
-}
 
 th{
     cursor: pointer;
 }
 
-table {
-    font-weight: 400;
-    font-style: normal;
-    width: 100%;
-    border-radius: 15px;
-    border-spacing: 0;
-    text-align: center;
-}
 
-
-tbody tr:nth-child(odd){
-    background: #2b3445;
-}
-
-tbody tr:nth-child(even){
-    background: #323c50;
-}
-
-
-table, td {
-    padding: 8px 8px 8px 20px;
-}
-
-
-tbody tr:hover {
-    background-color: rgba(114, 114, 113, 0.1);
+html body{
+    background-color:#212529 !important;
 }
 
 .container{
@@ -76,6 +49,7 @@ tbody tr:hover {
 
 #createEmp{
    right: 0;
+   margin-bottom: 10px;
 }
 
 #searchBar {
@@ -100,4 +74,10 @@ tbody tr:hover {
 
 .sideButton{
     float:right;
+}
+
+
+#create,#update{
+    display: grid;
+    justify-content: center;
 }

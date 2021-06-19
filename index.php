@@ -9,6 +9,8 @@
     <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <script src="resource/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
     <div class="container">
@@ -20,7 +22,7 @@
         </div>
         <div class="main">
             <?php if(mysqli_num_rows($result)) {?>
-                <table class="table">
+                <table class="table table-dark table-striped text-center table-hover table-responsive">
                     <thead>
                         <tr>
                             <th>#</th>
