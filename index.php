@@ -64,5 +64,11 @@
             <?php }else{ echo 'No Employees Recorded.';}?> <br>
         </div>
     </div>
+    <footer>
+        <div class="text-center">
+            @ 2021 Denis Çerri, Adelajda Muzhaqi, Mikel Shevroja, Dajana Kuqi:
+            <b><a target="_blank" href="https://github.com/deniscerri/phpcrud">PHP CRUD Project</a></b>
+        </div>
+    </footer>
 </body>
 </html>
