@@ -100,7 +100,7 @@ function searchEmployee(value){
         data: "search="+value,
         success: function(res) {
             if(res == ''){
-                $('.table').hide();
+                $('.table-responsive').hide();
                 if(!$('.noResults').length){
                     $('.main').append('<p style="margin-top:50px;" class="noResults">No results found!</p>')
                 }
@@ -119,7 +119,7 @@ function searchEmployee(value){
 
 function showTable(){
     //show table if it had been hidden from invalid searches
-    $('.table').show();
+    $('.table-responsive').show();
     //remove no search result message
     $('.noResults').remove();
 }
