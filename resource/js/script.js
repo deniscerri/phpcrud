@@ -133,30 +133,14 @@ function showTable(){
 
 
 function fixKey(key){
+    key = key.toLowerCase();
+    
     switch(key) {
-        case 'Name':
+        case 'name':
           key = 'firstName';
           break;
-        case 'Surname':
+        case 'surname':
           key = 'lastName';
-          break;
-        case 'Email':
-          key = 'email';
-          break;
-        case 'Phone':
-          key = 'phone';
-          break;
-        case 'Gender':
-          key = 'gender';
-          break;
-        case 'Country':
-          key = 'country';
-          break;
-        case 'City':
-          key = 'city';
-          break;
-        case 'Position':
-          key = 'position';
           break;
     }
     
