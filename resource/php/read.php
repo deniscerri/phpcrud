@@ -11,10 +11,12 @@ if(isset($_POST['search'])){
     $result = mysqli_query($conn, $search);
 
     $html = '';
+    $i = 0;
     while($row =mysqli_fetch_assoc($result))
     {
+        $i++;
         $html.='<tr class="searchRow">';
-        $html.= '<td >'.$row['id'].'</td>';
+        $html.= '<td >'.$i.'</td>';
         $html.= '<td >'.$row['firstName'].'</td>';
         $html.= '<td>'.$row['lastName'].'</td>';
         $html.= '<td>'.$row['email'].'</td>';
@@ -44,15 +46,22 @@ if(isset($_POST['sort'])){
     $query.= " ORDER BY ".$_POST['key']." ".$_POST['sort']."";
     $result = mysqli_query($conn, $query);
 
-    
+    $num_rows = mysqli_num_rows($result);
+    if($_POST['sort'] == 'DESC'){
+        $i = $num_rows;
+    }else{
+        $i = 0;
+    }
 
     $html = '';
-    $i = 0;
     while($row =mysqli_fetch_assoc($result))
     {
-        $i++;
+        if($_POST['sort'] == 'ASC'){
+            $i++;
+        }
+
         $html.='<tr class="'.$class.'">';
-        $html.= '<td >'.$row['id'].'</td>';
+        $html.= '<td >'.$i.'</td>';
         $html.= '<td >'.$row['firstName'].'</td>';
         $html.= '<td>'.$row['lastName'].'</td>';
         $html.= '<td>'.$row['email'].'</td>';
@@ -64,6 +73,10 @@ if(isset($_POST['sort'])){
         $html.= '<td><a href="views/updateEmployee.php?id='.$row['id'].'"><ion-icon name="create"></ion-icon></a></td>';
         $html.= '<td><a href="resource/php/delete.php?id='.$row['id'].'"><ion-icon name="trash"></ion-icon></a></td>';
         $html.='</tr>';
+
+        if($_POST['sort'] == 'DESC'){
+            $i--;
+        }
     }
 
     echo $html;

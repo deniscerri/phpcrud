@@ -40,10 +40,12 @@
                         </thead>
                         <tbody>
                             <?php
+                                $i = 0;
                                 while($rows = mysqli_fetch_assoc($result)){
+                                $i++;
                             ?>
                                 <tr class="defaultRow">
-                                    <td><?php echo $rows['id']?></td>
+                                    <td><?php echo $i?></td>
                                     <td><?php echo $rows['firstName']?></td>
                                     <td><?php echo $rows['lastName']?></td>
                                     <td><?php echo $rows['email']?></td>
