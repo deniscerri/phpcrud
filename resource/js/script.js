@@ -19,8 +19,15 @@ window.onload = function() {
         searchEmployee(this.value);
     })
 
+    //click listener for table headers except action
     $('th:not(:last-child)').each(function(i){
         $(this).on("click", function(){
+
+            //if there is only one table row or one search result, no need to sort.
+            if($('.table tr').length < 2 || $('.searchRow').length == 1){
+                return;
+            }
+
             var name = $(this).text();
             if(currentHeader != name && currentHeader != ''){
                 $(`th:contains('${currentHeader}')`).children().first().remove();
