@@ -22,45 +22,47 @@
         </div>
         <div class="main">
             <?php if(mysqli_num_rows($result)) {?>
-                <table class="table table-dark table-striped text-center table-hover table-responsive">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Gender</th>
-                            <th>Country</th>
-                            <th>City</th>
-                            <th>Position</th>
-                            <th colspan = 2 >Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            while($rows = mysqli_fetch_assoc($result)){
-                        ?>
-                            <tr class="defaultRow">
-                                <td><?php echo $rows['id']?></td>
-                                <td><?php echo $rows['firstName']?></td>
-                                <td><?php echo $rows['lastName']?></td>
-                                <td><?php echo $rows['email']?></td>
-                                <td><?php echo $rows['phone']?></td>
-                                <td><?php echo $rows['gender']?></td>
-                                <td><?php echo $rows['country']?></td>
-                                <td><?php echo $rows['city']?></td>
-                                <td><?php echo $rows['position']?></td>
-                                <td>
-                                    <?php echo '<a href="views/updateEmployee.php?id='.$rows['id'].'"><ion-icon name="create"></ion-icon></a>' ?>
-                                </td>
-                                <td>
-                                    <?php echo '<a href="resource/php/delete.php?id='.$rows['id'].'"><ion-icon name="trash"></ion-icon></a>' ?>
-                                </td>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped text-center table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Gender</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Position</th>
+                                <th colspan = 2 >Action</th>
                             </tr>
-                        <?php }?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                                while($rows = mysqli_fetch_assoc($result)){
+                            ?>
+                                <tr class="defaultRow">
+                                    <td><?php echo $rows['id']?></td>
+                                    <td><?php echo $rows['firstName']?></td>
+                                    <td><?php echo $rows['lastName']?></td>
+                                    <td><?php echo $rows['email']?></td>
+                                    <td><?php echo $rows['phone']?></td>
+                                    <td><?php echo $rows['gender']?></td>
+                                    <td><?php echo $rows['country']?></td>
+                                    <td><?php echo $rows['city']?></td>
+                                    <td><?php echo $rows['position']?></td>
+                                    <td>
+                                        <?php echo '<a href="views/updateEmployee.php?id='.$rows['id'].'"><ion-icon name="create"></ion-icon></a>' ?>
+                                    </td>
+                                    <td>
+                                        <?php echo '<a href="resource/php/delete.php?id='.$rows['id'].'"><ion-icon name="trash"></ion-icon></a>' ?>
+                                    </td>
+                                </tr>
+                            <?php }?>
+                        </tbody>
+                    </table>
+                </div>
             <?php }else{ echo 'No Employees Recorded.';}?> <br>
         </div>
     </div>
