@@ -4,6 +4,12 @@
         $sql = "SELECT * FROM employees WHERE id=".$empID;
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+
+        //if user manually edits url with a bad query, send them back to index with an error
+        if(!$row){
+            header('Location: ../index.php?error=EmployeeDoesNotExist');
+        }
+        
         
     }else if(isset($_POST["update"])){
         $id = $_POST['id'];
